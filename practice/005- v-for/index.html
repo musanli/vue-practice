@@ -1,0 +1,49 @@
+<div id="app">
+    <h4> 遍历 list {{ items }}</h4>
+    <ul>
+        <li v-for="item in items" :key="item.message">
+            {{ item.message }}
+        </li>
+    </ul>
+    <h4> 附加 index 遍历 list {{ items }}</h4>
+    <ul id="example-2">
+        <li v-for="(item, index) in items">
+            {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+    <h4> 变 in 为 of 遍历 list {{ items }}</h4>
+    <ul id="example-2">
+        <li v-for="(item, index) of items">
+            {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+    <h4> 遍历 Object {{ object }}</h4>
+    <ul id="v-for-object" class="demo">
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+
+    <h4> (value, name, index) 遍历 Object {{ object }}</h4>
+    <div v-for="(value, name, index) in object">
+        {{ index }}. {{ name }}: {{ value }}
+    </div>
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ],
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        }
+    })
+</script>
