@@ -1,0 +1,27 @@
+<div id="app">
+    <li>运行一些 JavaScript 代码</li>
+    <button v-on:click="counter += 1">{{ counter }} times</button>
+    <li>获取 $event</li>
+    <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+    <li>按键修饰符</li>
+    <input v-on:keyup.enter="lisenterEnter">
+
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            counter: 0
+        },
+        methods: {
+            warn: function (message, event) {
+                console.log(message, event)
+            },
+            lisenterEnter() {
+                alert("enter")
+            }
+        }
+    })
+</script>
