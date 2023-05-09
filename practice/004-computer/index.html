@@ -1,0 +1,31 @@
+<div id="app">
+    <div> 通过 双大括号调用javaScript计算</div>
+    {{ message.split('').reverse().join('') }}
+    <div>通过计算属性</div>
+    {{ reversedMessage }}
+    <div>提供set方法的计算属性</div>
+    {{ reversedMessageWithGetSet }}
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: 'hello'
+        },
+        computed: {
+            reversedMessage: function () {
+                return this.message.split('').reverse().join('')
+            },
+            reversedMessageWithGetSet: {
+                get() {
+                    return this.message.split('').reverse().join('')
+                },
+                set(value) {
+                    this.message = value + 'set'
+                },
+            }
+        }
+    })
+</script>
